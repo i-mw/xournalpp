@@ -28,6 +28,9 @@ public:
     void setUsed(bool used);
 
     static void toolButtonCallback(GtkToolButton* toolbutton, AbstractToolItem* item);
+    GdkPixbuf* getPixbufFromImageIconName();
+    GdkPixbuf* getPixbufFromImagePixbuf();
+
 
     virtual std::string getToolDisplayName() = 0;
 
@@ -35,6 +38,7 @@ public:
      * Returns: (transfer floating)
      */
     virtual GtkWidget* getNewToolIcon() = 0;
+    virtual GdkPixbuf* getNewToolPixbuf() = 0;
 
     /**
      * Enable / Disable the tool item

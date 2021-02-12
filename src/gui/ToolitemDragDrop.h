@@ -26,6 +26,7 @@ struct ToolItemDragDropData {
     int id;
     AbstractToolItem* item;
     Color color;
+    size_t paletteIndex;
 };
 
 class ToolitemDragDrop {
@@ -49,6 +50,7 @@ public:
      * Returns: (transfer floating)
      */
     static GtkWidget* getIcon(ToolItemDragDropData* data);
+    static GdkPixbuf* getPixbuf(ToolItemDragDropData* data);
 
 public:
     static void removeFromToolbarForMove(GtkWidget* widget);

@@ -142,6 +142,7 @@ void ToolbarAdapter::toolitemDragBegin(GtkWidget* widget, GdkDragContext* contex
     ToolItemDragDropData* data = ToolitemDragDrop::metadataGetMetadata(widget);
     g_return_if_fail(data != nullptr);
     ToolItemDragCurrentData::setData(data);
+    GdkPixbuf* pb = ToolitemDragDrop::getPixbuf(data);
 
     auto* icon = ToolitemDragDrop::getIcon(data);
     g_object_ref_sink(icon);
@@ -291,8 +292,15 @@ void ToolbarAdapter::toolbarDragDataReceivedCb(GtkToolbar* toolbar, GdkDragConte
         int newId = tb->insertItem(name, id, pos);
         ToolitemDragDrop::attachMetadata(GTK_WIDGET(it), newId, d->item);
     } else if (d->type == TOOL_ITEM_COLOR) {
+        // [idotobi]: TODO fix
+        auto palette = adapter->window->getControl()->getSettings()->palette;
+        auto namedColor = palette->getNext();
+        auto colorName = namedColor.name;
+
+        // [idotobi]
+        // only need to pass paletteIndex (the rest should be obtained from the palette itself)
         auto* item = new ColorToolItem(adapter->window->getControl(), adapter->window->getControl()->getToolHandler(),
-                                       GTK_WINDOW(adapter->window->getWindow()), d->color);
+                                       GTK_WINDOW(adapter->window->getWindow()), d->color, colorName, d->paletteIndex);
 
         bool horizontal = gtk_orientable_get_orientation(GTK_ORIENTABLE(toolbar)) == GTK_ORIENTATION_HORIZONTAL;
         GtkToolItem* it = item->createItem(horizontal);
@@ -306,6 +314,7 @@ void ToolbarAdapter::toolbarDragDataReceivedCb(GtkToolbar* toolbar, GdkDragConte
 
         string id = item->getId();
 
+        // here, the name is stored for the item
         int newId = tb->insertItem(name, id, pos);
         ToolitemDragDrop::attachMetadataColor(GTK_WIDGET(it), newId, d->color, item);
 

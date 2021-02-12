@@ -21,7 +21,8 @@ public:
     ToolbarItem();
 
 public:
-    const std::string& getName() const;
+    std::string getName();
+    void setName(std::string name);
 
     bool operator==(ToolbarItem& other);
 

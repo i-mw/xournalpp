@@ -17,13 +17,6 @@
  * Menuitem handler
  */
 namespace ToolbarSeparatorImage {
-/**
- * Returns: (transfer full)
- */
-GdkPixbuf* newPixbuf();
-
-/**
- * Returns: (transfer floating)
- */
-GtkWidget* newImage();
-}  // namespace ToolbarSeparatorImage
+    GtkWidget* newImage();
+    GdkPixbuf* getNewToolPixbuf();
+};
