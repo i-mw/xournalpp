@@ -1003,6 +1003,5 @@ private:
     StrokeStabilizer::Preprocessor stabilizerPreprocessor{};
 
 public:
-    Palette* palette;
-    fs::path paletteFilePath;
+    std::unique_ptr<Palette> palette;
 };

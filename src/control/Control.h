@@ -342,7 +342,6 @@ private:
     ZoomControl* zoom = nullptr;
 
     Settings* settings = nullptr;
-    Palette* palette;
     MainWindow* win = nullptr;
 
     Document* doc = nullptr;
