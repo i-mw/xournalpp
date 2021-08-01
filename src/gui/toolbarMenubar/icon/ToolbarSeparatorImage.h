@@ -17,6 +17,6 @@
  * Menuitem handler
  */
 namespace ToolbarSeparatorImage {
-    GtkWidget* newImage();
-    GdkPixbuf* getNewToolPixbuf();
-};
+GtkWidget* newImage();
+GdkPixbuf* getNewToolPixbuf();
+};  // namespace ToolbarSeparatorImage

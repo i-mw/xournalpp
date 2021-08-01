@@ -21,9 +21,7 @@ void Palette::load() {
             getline(gptFile, line);
             if (!parseFirstGimpPaletteLine(line))
                 throw std::invalid_argument("This is not a gpt file, using default palette instead.");
-            while (getline(gptFile, line)) {
-                parseHeaderLine(line) || parseColorLine(line);
-            }
+            while (getline(gptFile, line)) { parseHeaderLine(line) || parseColorLine(line); }
             if (namedColors.size() < 1)
                 throw std::invalid_argument("Your Palettefile has no parsable color. It needs at least one!");
         }
@@ -44,9 +42,7 @@ void Palette::load() {
         getline(defaultFile, line);
         if (!parseFirstGimpPaletteLine(line))
             g_error("The default file was mallformed. This should never happen!");
-        while (getline(defaultFile, line)) {
-            parseHeaderLine(line) || parseColorLine(line);
-        }
+        while (getline(defaultFile, line)) { parseHeaderLine(line) || parseColorLine(line); }
     }
 }
 
