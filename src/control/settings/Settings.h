@@ -15,6 +15,7 @@
 #include <memory>
 
 #include <config-dev.h>
+#include <gui/toolbarMenubar/model/ColorPalette.h>
 #include <libxml/xmlreader.h>
 #include <portaudio.h>
 
@@ -1004,6 +1005,7 @@ private:
      */
     bool eagerPageCleanup{};
 
+
     /**
      * Stabilizer related settings
      */
@@ -1017,4 +1019,7 @@ private:
     double stabilizerSigma{};
     StrokeStabilizer::AveragingMethod stabilizerAveragingMethod{};
     StrokeStabilizer::Preprocessor stabilizerPreprocessor{};
+
+public:
+    std::unique_ptr<Palette> palette;
 };

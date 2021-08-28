@@ -38,6 +38,7 @@ public:
 protected:
     GtkToolItem* newItem() override;
     GtkWidget* getNewToolIcon() override;
+    GdkPixbuf* getNewToolPixbuf() override;
 
 private:
     void updateLabels();

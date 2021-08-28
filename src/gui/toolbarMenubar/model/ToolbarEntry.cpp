@@ -63,7 +63,9 @@ auto ToolbarEntry::insertItem(string item, int position) -> int {
         return it->getId();
     }
 
-    entries.insert(entries.begin() + position, it);
+    // [idotobi]: check if this is connected with https://github.com/xournalpp/xournalpp/pull/2980
+    // -1 required to store the correct order in toolbar.ini
+    entries.insert(entries.begin() + position - 1, it);
     return it->getId();
 }
 

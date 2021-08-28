@@ -70,6 +70,8 @@ public:
 
     std::vector<AbstractToolItem*>* getToolItems();
 
+    Control* getControl();
+
     bool isColorInUse(Color color);
 
     void disableAudioPlaybackButtons();

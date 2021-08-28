@@ -57,6 +57,7 @@ protected:
 
     virtual GtkToolItem* newItem();
     virtual GtkWidget* getNewToolIcon();
+    virtual GdkPixbuf* getNewToolPixbuf();
 
 private:
     void createLayerMenuItem(const std::string& text, int layerId);

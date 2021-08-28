@@ -63,6 +63,8 @@ auto ToolPageSpinner::getNewToolIcon() -> GtkWidget* {
     return gtk_image_new_from_icon_name(iconNameHelper.iconName("page-spinner").c_str(), GTK_ICON_SIZE_SMALL_TOOLBAR);
 }
 
+auto ToolPageSpinner::getNewToolPixbuf() -> GdkPixbuf* { return getPixbufFromImageIconName(); }
+
 auto ToolPageSpinner::newItem() -> GtkToolItem* {
     if (this->pageSpinner->hasWidget()) {
         this->pageSpinner->removeWidget();
